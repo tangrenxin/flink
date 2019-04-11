@@ -1,6 +1,6 @@
-package com.test.streaming;
+package com.flink.streaming;
 
-import com.test.streaming.customSource.MyNoParalleSource;
+import com.flink.streaming.customSource.MyNoParalleSource;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;

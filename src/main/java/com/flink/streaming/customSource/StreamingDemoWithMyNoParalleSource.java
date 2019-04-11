@@ -1,4 +1,4 @@
-package com.test.streaming.customSource;
+package com.flink.streaming.customSource;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -8,16 +8,15 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 
 /**
  * @Author:renxin.tang
- * @Desc:自定义的数据源测试MyParalleSource
- * 支持多并行度的Source
+ * @Desc:自定义的数据源测试MyNoParalleSource
  * @Date: Created in 15:49 2019/3/29
  */
-public class StreamingDemoWithMyParalleSource {
+public class StreamingDemoWithMyNoParalleSource {
     public static void main(String[] args) throws Exception {
         //  获取运行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         //从collection中获取数据源
-        DataStreamSource<Long> text = env.addSource(new MyParalleSource()).setParallelism(2);
+        DataStreamSource<Long> text = env.addSource(new MyNoParalleSource());
 
         SingleOutputStreamOperator<Long> num = text.map(new MapFunction<Long, Long>() {
             @Override
@@ -30,7 +29,7 @@ public class StreamingDemoWithMyParalleSource {
         SingleOutputStreamOperator<Long> sum = num.timeWindowAll(Time.seconds(2)).sum(0);
         sum.print().setParallelism(1);
 
-        String jobname = StreamingDemoWithMyParalleSource.class.getSimpleName();
+        String jobname = StreamingDemoWithMyNoParalleSource.class.getSimpleName();
         env.execute(jobname);
 
     }

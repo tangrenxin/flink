@@ -1,4 +1,4 @@
-package com.test.streaming.sink;
+package com.flink.streaming.sink;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;

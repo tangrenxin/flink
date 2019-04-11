@@ -1,4 +1,4 @@
-package com.test.batch;
+package com.flink.batch;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.DataSet;

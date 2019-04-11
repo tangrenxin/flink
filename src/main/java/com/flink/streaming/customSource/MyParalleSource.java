@@ -1,14 +1,14 @@
-package com.test.streaming.customSource;
+package com.flink.streaming.customSource;
 
-import org.apache.flink.streaming.api.functions.source.SourceFunction;
+import org.apache.flink.streaming.api.functions.source.ParallelSourceFunction;
 
 /**
  * @Author:renxin.tang
- * @Desc:自定义实现并行度为1 的source
+ * @Desc:自定义一个支持并行度的source
  * 注意：SourceFunction和SourceContext都需要指定数据类型，如果不指定会报错；
  * @Date: Created in 16:07 2019/3/29
  */
-public class MyNoParalleSource implements SourceFunction<Long> {
+public class MyParalleSource implements ParallelSourceFunction<Long> {
     private boolean isRunning = true;
     private long count = 1L;
 
@@ -30,7 +30,6 @@ public class MyNoParalleSource implements SourceFunction<Long> {
             Thread.sleep(1000);
         }
     }
-
     /**
      *   取消一个cancel的时候调用的方法
      */

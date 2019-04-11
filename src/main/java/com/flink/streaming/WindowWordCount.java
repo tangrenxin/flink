@@ -1,4 +1,4 @@
-package com.test.streaming;
+package com.flink.streaming;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;

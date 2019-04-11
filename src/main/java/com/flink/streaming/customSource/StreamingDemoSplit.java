@@ -1,4 +1,4 @@
-package com.test.streaming.customSource;
+package com.flink.streaming.customSource;
 
 import org.apache.flink.streaming.api.collector.selector.OutputSelector;
 import org.apache.flink.streaming.api.datastream.DataStream;
